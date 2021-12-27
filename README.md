@@ -1,16 +1,13 @@
+forked from [KitsunePie/BCRfullscreen](https://github.com/KitsunePie/BCRfullscreen)
+
 # BCRfullscreen
+让所有应用或游戏在异性屏中都能全屏显示
 
-让BCR/PCR最新版全屏显示
+## 下载
+[点击下载](https://github.com/yuki-ryoko/BCRfullscreen/releases/)
 
-## [下载](https://github.com/KitsunePie/BCRfullscreen/releases/)
-
->[![APK: v1.3](https://img.shields.io/badge/APK-v1.3-brightgreen)](https://github.com/KitsunePie/BCRfullscreen/releases/download/1.3/app-release.apk)
-
-![Download-Count](https://img.shields.io/github/downloads/KitsunePie/BCRfullscreen/total?color=blue)
-
-## 支持设备:
-
-安卓p(9.0)以上
+## 支持设备
+Android P (9.0) 及以上
 
 ## 使用:
 

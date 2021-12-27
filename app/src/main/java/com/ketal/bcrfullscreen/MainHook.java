@@ -1,25 +1,17 @@
 package com.ketal.bcrfullscreen;
 
-import static android.view.WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
-import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
-import static de.robv.android.xposed.XposedHelpers.getObjectField;
-
 import android.view.WindowManager;
+
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
-import java.util.ArrayList;
-import java.util.List;
+
+import static android.view.WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
+import static de.robv.android.xposed.XposedHelpers.getObjectField;
 
 public class MainHook implements IXposedHookLoadPackage {
-    private static final List<String> PKGS = new ArrayList<>();
-
-    static {
-        PKGS.add("com.bilibili.priconne");
-        PKGS.add("jp.co.cygames.princessconnectredive");
-        PKGS.add("tw.sonet.princessconnect");
-    }
 
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) {
@@ -35,10 +27,8 @@ public class MainHook implements IXposedHookLoadPackage {
                             (WindowManager.LayoutParams) getObjectField(param.args[0], "mAttrs");
                     if (attrs.type > WindowManager.LayoutParams.LAST_APPLICATION_WINDOW)
                         return;
-                    if (PKGS.contains(attrs.packageName)) {
-                        //XposedBridge.log("Change Window From" + attrs.packageName);
-                        attrs.layoutInDisplayCutoutMode = LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
-                    }
+                    //XposedBridge.log("Change Window From" + attrs.packageName);
+                    attrs.layoutInDisplayCutoutMode = LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
                 }
             };
             findAndHookMethod(
